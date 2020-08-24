@@ -3,7 +3,7 @@
 This program is an advanced file viewer that takes features from a regular file viewer but adds more advanced features such as viewing files in hexadecimal and compressing files. The program was inspired by the lack of a convenient multiple purpose tool on the MacOS platform. 
 
 <p align="left">
-  <img src="./assets/intro.gif" alt="Size Limit CLI" width="600">
+  <img src="./assets/intro.gif" alt="Size Limit CLI" width="900">
 </p>
 
 Features
