@@ -1,0 +1,4 @@
+lz77/build/lz77.build/Debug/lz77.build/Objects-normal/x86_64/* linguist-vendored
+build/* linguist-vendored
+https://github.com/Joon1221/advanced-file-viewer filter=lfs diff=lfs merge=lfs -text
+Advanced[[:space:]]File[[:space:]]Viewer.app filter=lfs diff=lfs merge=lfs -text
