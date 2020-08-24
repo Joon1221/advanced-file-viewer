@@ -47,8 +47,8 @@ In Xcode under `Project Settings -> Build Settings -> Library Search Paths`
 	
 In Xcode under `Project Settings -> General`, link all libraries ending with .dylib in `wxWidgets-3.1.0/build-cocoa-debug/lib`
 
-How to Use
-----------
+Usage
+-----
 
 - Navigate file directory using the left window.
 
