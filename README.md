@@ -12,6 +12,7 @@ Features
 - **Compressing** and **decompressing** files.
 - Viewing files in **ascii**, **hexadecimal**, and **binary**.
 - Opening and viewing **multiple files** at once.
+- Remembers last opened folder path.
 
 
 Installation
