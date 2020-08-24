@@ -50,10 +50,14 @@ In Xcode under `Project Settings -> General`, link all libraries ending with .dy
 How to Use
 ----------
 
-- Build and run the program using **Xcode**.
-- Navigate the left window as you would a normal file explorer.
-- **Compress** and **decompress** files by selecting a file and pressing their respective buttons (*Note that only .lz77 files can be decompressed*)
-- Selecting files will allow user to view content in **ascii**, **hexadecimal**, and **binary**.
+- Navigate file directory using the left window.
+
+- Select files in the middle window to view. 
+
+- **Compress** and **decompress** files by selecting a file and pressing their respective buttons (*Note that only .lz77 files can be decompressed*).
+
+- View file content in **ascii**, **hexadecimal**, and **binary** using the radio box.
+
 
 
 Staff
