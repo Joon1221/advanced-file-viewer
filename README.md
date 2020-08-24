@@ -3,7 +3,7 @@
 This program is an advanced file viewer that takes features from a regular file viewer but adds more advanced features such as viewing files in hexadecimal and compressing files. The program was inspired by the lack of a convenient multiple purpose tool on the MacOS platform. 
 
 <p align="left">
-  <img src="./assets/intro.gif" alt="Size Limit CLI" width="900">
+  <img src="./assets/final.gif" alt="Size Limit CLI" width="900">
 </p>
 
 Features
@@ -52,13 +52,27 @@ How to Use
 
 - Navigate file directory using the left window.
 
+<p align="left">
+  <img src="./assets/directory.gif" alt="Size Limit CLI" width="600">
+</p>
+
 - Select files in the middle window to view. 
+
+<p align="left">
+  <img src="./assets/view.gif" alt="Size Limit CLI" width="600">
+</p>
 
 - **Compress** and **decompress** files by selecting a file and pressing their respective buttons (*Note that only .lz77 files can be decompressed*).
 
+<p align="left">
+  <img src="./assets/compress.gif" alt="Size Limit CLI" width="600">
+</p>
+
 - View file content in **ascii**, **hexadecimal**, and **binary** using the radio box.
 
-
+<p align="left">
+  <img src="./assets/radiobox.gif" alt="Size Limit CLI" width="600">
+</p>
 
 Staff
 -----
