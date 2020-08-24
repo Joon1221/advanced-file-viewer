@@ -1,0 +1,1227 @@
+package megaman;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.util.Vector;
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// How To Use
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// bgBlockedMaskBoxColliders가 백그라운드를 처음 발견할 때 시간이 너무 걸리므로, 맨 처음 한번 detect할 때 constant형태로 output하도록 하여..
+// 그것을 bg를 바꿀때마다 한번씩만 돌려서 print하고 사용하면 매우 빠르다.
+
+// 새로 bg mask를 만들었을 경우, 기존의 constant들을 지우고, 아래의 0개짜리를 켜면 된다.
+
+public class BgBoxColliders {
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	// Constants
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------	
+
+//    public static final int NUM_BG_BLOCKED_MASK_BOX_COLLIDERS = 0;
+//
+//    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_TYPE = {
+//    		0,
+//    };
+//
+//    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS = {
+//    		{0, 0},
+//    };
+//
+//    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {
+//    		{0, 0},
+//    };
+//
+//    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {
+//    		0,
+//    };
+//    
+//    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {
+//    		0,
+//    };
+//    
+//    
+//    public static final int NUM_BG_NON_BLOCKED_MASK_BOX_COLLIDERS = 0;
+//
+//    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_TYPE = {
+//    		0,
+//    };
+//
+//    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS = {
+//    		{0, 0},
+//    };
+//
+//    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {
+//    		{0, 0},
+//    };
+//
+//    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {
+//    		0,
+//    };
+//    
+//    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {
+//    		0,
+//    };
+    
+    //-------------------------------------------------------------------------
+    // 새로 bg mask를 만들었을 경우, 아래의 constant들을 지우고, 위의 0개짜리를 켜면 된다.
+    //-------------------------------------------------------------------------
+	
+    //-------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
+	// 아래는 "MegaMan-BombMan_3x" 용
+    //-------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
+
+    public static final int NUM_BG_BLOCKED_MASK_BOX_COLLIDERS = 71;
+
+    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_TYPE = {
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+    };
+
+    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS = {
+        {9264, 768},
+        {4531, 1397},
+        {4800, 2064},
+        {4800, 2112},
+        {5184, 2208},
+        {9264, 2225},
+        {5184, 2239},
+        {5232, 2256},
+        {5375, 2304},
+        {5328, 2352},
+        {4752, 2400},
+        {5088, 2400},
+        {5376, 2400},
+        {4848, 2449},
+        {5136, 2496},
+        {5424, 2496},
+        {5232, 2592},
+        {5376, 2592},
+        {5435, 2592},
+        {5088, 2640},
+        {5279, 2688},
+        {5040, 2784},
+        {0, 2788},
+        {5136, 2832},
+        {4657, 2880},
+        {0, 2928},
+        {4992, 3120},
+        {4750, 3166},
+        {5280, 3168},
+        {5136, 3214},
+        {1200, 3215},
+        {4510, 3262},
+        {5184, 3263},
+        {4944, 3264},
+        {1200, 3311},
+        {2832, 3311},
+        {4320, 3311},
+        {1008, 3312},
+        {1391, 3312},
+        {2448, 3312},
+        {3215, 3312},
+        {3601, 3312},
+        {4079, 3312},
+        {5231, 3313},
+        {1391, 3360},
+        {3984, 3407},
+        {816, 3408},
+        {1392, 3408},
+        {2352, 3408},
+        {2735, 3408},
+        {3120, 3408},
+        {3504, 3408},
+        {4896, 3408},
+        {5184, 3455},
+        {48, 3504},
+        {1584, 3504},
+        {2640, 3504},
+        {3408, 3504},
+        {4176, 3504},
+        {3024, 3505},
+        {3792, 3505},
+        {4176, 3552},
+        {3023, 3600},
+        {3792, 3600},
+        {48, 3648},
+        {1392, 3648},
+        {2545, 3648},
+        {2929, 3648},
+        {3312, 3648},
+        {3698, 3648},
+        {4514, 3648},
+    };
+
+    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {
+        {9264, 768},
+        {4531, 1397},
+        {4800, 2064},
+        {4800, 2112},
+        {5184, 2208},
+        {9264, 2225},
+        {5184, 2239},
+        {5232, 2256},
+        {5375, 2304},
+        {5328, 2352},
+        {4752, 2400},
+        {5088, 2400},
+        {5376, 2400},
+        {4848, 2449},
+        {5136, 2496},
+        {5424, 2496},
+        {5232, 2592},
+        {5376, 2592},
+        {5435, 2592},
+        {5088, 2640},
+        {5279, 2688},
+        {5040, 2784},
+        {0, 2788},
+        {5136, 2832},
+        {4657, 2880},
+        {0, 2928},
+        {4992, 3120},
+        {4750, 3166},
+        {5280, 3168},
+        {5136, 3214},
+        {1200, 3215},
+        {4510, 3262},
+        {5184, 3263},
+        {4944, 3264},
+        {1200, 3311},
+        {2832, 3311},
+        {4320, 3311},
+        {1008, 3312},
+        {1391, 3312},
+        {2448, 3312},
+        {3215, 3312},
+        {3601, 3312},
+        {4079, 3312},
+        {5231, 3313},
+        {1391, 3360},
+        {3984, 3407},
+        {816, 3408},
+        {1392, 3408},
+        {2352, 3408},
+        {2735, 3408},
+        {3120, 3408},
+        {3504, 3408},
+        {4896, 3408},
+        {5184, 3455},
+        {48, 3504},
+        {1584, 3504},
+        {2640, 3504},
+        {3408, 3504},
+        {4176, 3504},
+        {3024, 3505},
+        {3792, 3505},
+        {4176, 3552},
+        {3023, 3600},
+        {3792, 3600},
+        {48, 3648},
+        {1392, 3648},
+        {2545, 3648},
+        {2929, 3648},
+        {3312, 3648},
+        {3698, 3648},
+        {4514, 3648},
+    };
+
+    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {
+        33, 
+        126, 
+        1584, 
+        432, 
+        4080, 
+        21, 
+        244, 
+        244, 
+        244, 
+        244, 
+        288, 
+        48, 
+        58, 
+        96, 
+        96, 
+        11, 
+        96, 
+        48, 
+        44, 
+        48, 
+        49, 
+        239, 
+        4531, 
+        143, 
+        479, 
+        48, 
+        384, 
+        98, 
+        96, 
+        144, 
+        192, 
+        98, 
+        96, 
+        49, 
+        191, 
+        97, 
+        190, 
+        192, 
+        97, 
+        97, 
+        97, 
+        97, 
+        97, 
+        49, 
+        1, 
+        95, 
+        192, 
+        192, 
+        96, 
+        97, 
+        95, 
+        97, 
+        50, 
+        96, 
+        1152, 
+        768, 
+        192, 
+        193, 
+        1008, 
+        96, 
+        287, 
+        338, 
+        192, 
+        287, 
+        1152, 
+        1056, 
+        287, 
+        94, 
+        289, 
+        94, 
+        968, 
+    };
+
+    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {
+        1457, 
+        1531, 
+        48, 
+        96, 
+        31, 
+        14, 
+        17, 
+        48, 
+        48, 
+        48, 
+        49, 
+        192, 
+        96, 
+        335, 
+        192, 
+        961, 
+        96, 
+        865, 
+        865, 
+        48, 
+        240, 
+        48, 
+        140, 
+        96, 
+        48, 
+        768, 
+        48, 
+        48, 
+        289, 
+        49, 
+        96, 
+        100, 
+        50, 
+        49, 
+        385, 
+        385, 
+        51, 
+        144, 
+        48, 
+        384, 
+        384, 
+        384, 
+        384, 
+        47, 
+        336, 
+        49, 
+        48, 
+        144, 
+        144, 
+        49, 
+        145, 
+        49, 
+        49, 
+        97, 
+        48, 
+        48, 
+        97, 
+        95, 
+        48, 
+        48, 
+        47, 
+        144, 
+        96, 
+        96, 
+        48, 
+        48, 
+        48, 
+        48, 
+        48, 
+        48, 
+        48, 
+    };
+    //------------------------------------------------------------
+    public static final int NUM_BG_NON_BLOCKED_MASK_BOX_COLLIDERS = 43;
+
+    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_TYPE = {
+        2,
+        13,
+        2,
+        13,
+        13,
+        2,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+    };
+
+    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS = {
+        {4752, 2064},
+        {4752, 2399},
+        {5040, 2400},
+        {5136, 2495},
+        {5232, 2591},
+        {5328, 2592},
+        {5040, 2783},
+        {4657, 2879},
+        {4992, 3119},
+        {4750, 3165},
+        {1200, 3214},
+        {4510, 3261},
+        {4944, 3263},
+        {2832, 3310},
+        {4320, 3310},
+        {1008, 3311},
+        {1391, 3311},
+        {2448, 3311},
+        {3215, 3311},
+        {3601, 3311},
+        {4079, 3311},
+        {3984, 3406},
+        {816, 3407},
+        {1392, 3407},
+        {2352, 3407},
+        {2735, 3407},
+        {3120, 3407},
+        {3504, 3407},
+        {4896, 3407},
+        {5184, 3454},
+        {48, 3503},
+        {1584, 3503},
+        {2640, 3503},
+        {3408, 3503},
+        {4176, 3503},
+        {3024, 3504},
+        {3792, 3504},
+        {3023, 3599},
+        {3792, 3599},
+        {2545, 3647},
+        {2929, 3647},
+        {3312, 3647},
+        {3698, 3647},
+    };
+
+    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {
+        {4752, 2064},
+        {4752, 2399},
+        {5040, 2400},
+        {5136, 2495},
+        {5232, 2591},
+        {5328, 2592},
+        {5040, 2783},
+        {4657, 2879},
+        {4992, 3119},
+        {4750, 3165},
+        {1200, 3214},
+        {4510, 3261},
+        {4944, 3263},
+        {2832, 3310},
+        {4320, 3310},
+        {1008, 3311},
+        {1391, 3311},
+        {2448, 3311},
+        {3215, 3311},
+        {3601, 3311},
+        {4079, 3311},
+        {3984, 3406},
+        {816, 3407},
+        {1392, 3407},
+        {2352, 3407},
+        {2735, 3407},
+        {3120, 3407},
+        {3504, 3407},
+        {4896, 3407},
+        {5184, 3454},
+        {48, 3503},
+        {1584, 3503},
+        {2640, 3503},
+        {3408, 3503},
+        {4176, 3503},
+        {3024, 3504},
+        {3792, 3504},
+        {3023, 3599},
+        {3792, 3599},
+        {2545, 3647},
+        {2929, 3647},
+        {3312, 3647},
+        {3698, 3647},
+    };
+
+    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {
+        48, 
+        384, 
+        48, 
+        96, 
+        192, 
+        48, 
+        239, 
+        479, 
+        384, 
+        98, 
+        192, 
+        98, 
+        49, 
+        97, 
+        190, 
+        192, 
+        97, 
+        97, 
+        97, 
+        97, 
+        97, 
+        95, 
+        192, 
+        192, 
+        96, 
+        97, 
+        95, 
+        97, 
+        50, 
+        96, 
+        1152, 
+        768, 
+        192, 
+        193, 
+        1008, 
+        96, 
+        287, 
+        192, 
+        287, 
+        287, 
+        94, 
+        289, 
+        94, 
+    };
+
+    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {
+        335, 
+        1, 
+        383, 
+        1, 
+        1, 
+        527, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+        1, 
+    };
+
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	// Instance Variables(= Member Variables)
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+    
+    public static Vector<BoxCollider> bgMaskBoxColliders;
+    public static Vector<BoxCollider> bgBlockedMaskBoxColliders; // 이것은 unit들이 움직일 때, collideWithBackgroundMask()
+    public static Vector<BoxCollider> bgNonBlockedMaskBoxColliders; // ladder같은 것들.
+    
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	// Methods(= Member Functions)
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//-------------------------------------------------------------------------
+    
+    // 이 버젼은 mask에 그린 색깔별(종류별) mask chunk가 직사각형으로 되어 있다는 가정하에 만든다.
+    public static void buildBgMaskBoxColliders(BufferedImage bgMask) {
+    		if (NUM_BG_BLOCKED_MASK_BOX_COLLIDERS > 0) {
+    			createBgBlockedMaskBoxCollidersByConstants();
+    			return;
+    		}
+    	
+	    	BufferedImage bgMaskCopy = new BufferedImage( 
+	        		bgMask.getWidth(), bgMask.getHeight(), BufferedImage.TYPE_INT_ARGB);
+	        try{
+	            for(int x = 0; x < bgMaskCopy.getWidth(); x++){
+	                for(int y = 0; y < bgMaskCopy.getHeight(); y++){
+	        			Color curColor = new Color(bgMask.getRGB(x, y), true);
+	                    int r = curColor.getRed();
+	                    int g = curColor.getGreen();
+	                    int b = curColor.getBlue();
+	                    int alpha = curColor.getAlpha();
+	                    int col = (alpha << 24) | (r << 16) | (g << 8) | b;
+	                    bgMaskCopy.setRGB(x, y, col);
+	                }
+	            }
+	        }
+	        catch(Exception e){
+	            e.printStackTrace();
+	        }
+	        
+	    	bgMaskBoxColliders = new Vector<BoxCollider>();
+	    	bgBlockedMaskBoxColliders = new Vector<BoxCollider>();
+	    	bgNonBlockedMaskBoxColliders = new Vector<BoxCollider>();
+//	    	heroSpawnBoxCollider = null;
+//	    	bossSpawnBoxCollider = null;
+//	    	enemySpawnBoxColliders = new Vector<BoxCollider>();
+//	    	allySpawnBoxColliders = new Vector<BoxCollider>();
+	    	
+	    	// 현재 bgMask에 ARGB값이 (0,0,0,0) 아닌 점이 한개라도 발견되면, 그 점을 시작점으로 하여 이어진 box chunk를 BoxCollider로 만든다.
+	    	int curStartX = -1;
+	    	int curStartY = -1;
+			int bottomRightX = -1;
+			int bottomRightY = -1;
+	    	Color curBoxColliderColor = null;
+	    	boolean foundStartPixel = false;
+	
+	    	do {
+	    		// 매번 돌기 전에 이번 chunk의 시작점을 발견하기 위해서, 필요한 임시 변수들을 반드시 초기화해야 한다.
+	        	curStartX = -1;
+	        	curStartY = -1;
+	        	curBoxColliderColor = null;
+	        	foundStartPixel = false;
+	        	
+	        	// chunk의 시작점을 발견하기.
+	    		for (int y = 0; y < bgMaskCopy.getHeight() && !foundStartPixel; y++) {
+	    			for (int x = 0; x < bgMaskCopy.getWidth() && !foundStartPixel; x++) {
+	    				Color curColor = new Color(bgMaskCopy.getRGB(x, y), true);
+						int curAlpha = curColor.getAlpha();
+						if (curAlpha > 0) { // 불투명한 점 발견(마스크의 시작점)
+							curStartX = x;
+							curStartY = y;
+							curBoxColliderColor = curColor;
+							foundStartPixel = true;
+							
+	//			    			System.out.println("=====================================================");
+	//			    			System.out.println("curColor.getRed(): " + curColor.getRed());
+	//			    			System.out.println("curColor.getGreen(): " + curColor.getGreen());
+	//			    			System.out.println("curColor.getBlue(): " + curColor.getBlue());
+	//			    			System.out.println("=====================================================");
+						}
+	        		}
+	    		}
+	    		
+	    		System.out.println("curStartX: " + curStartX + " curStartY:" + curStartY);
+	    		
+	    		// 없으면 모든 chunk처리가 끝난 것이므로 빠져나가야 한다.
+				bottomRightX = -1;
+				bottomRightY = -1;
+	    		if (foundStartPixel) {
+	    			
+	    			// mask chunk의 bottom-right점의 x를 찾는다.
+	        		for (int x = curStartX+1; x < bgMaskCopy.getWidth() && bottomRightX == -1; x++) {
+	    				Color curColor = new Color(bgMaskCopy.getRGB(x, curStartY), true);
+						int curAlpha = curColor.getAlpha();
+						if (curAlpha == 0) { // 불투명한 점이 아니라면 그 직전의 점이 오른쪽 끝점.
+							bottomRightX = x - 1;
+						}
+						else { // 불투명의 경우..
+							// 불투명한 점이라면, color가 current chunk의 color와 틀려질 경우, 그 직전의 점이 오른쪽 끝점.
+							if (curColor.getRed() != curBoxColliderColor.getRed() ||
+								curColor.getGreen() != curBoxColliderColor.getGreen() ||
+								curColor.getBlue() != curBoxColliderColor.getBlue()) {
+								bottomRightX = x - 1;
+							}
+							// 불투명하고 chunk 색깔이 아직 같지만, 현재 y라인에서 끝이면, 여기가 bottomRightX이다. 즉 현재 y의 맨 오른쪽 끝 pixel이라면..
+							else if (x == bgMaskCopy.getWidth() - 1) {
+								bottomRightX = x;
+							}
+						}
+	        		}
+	        		
+	        		System.out.println("bottomRightX: " + bottomRightX);
+	
+	    			// mask chunk의 bottom-right점의 y를 찾는다.
+	        		for (int y = curStartY+1; y < bgMaskCopy.getHeight() && bottomRightY == -1; y++) {
+	        			for (int x = curStartX; x <= bottomRightX && bottomRightY == -1; x++) {
+		    				Color curColor = new Color(bgMaskCopy.getRGB(x, y), true);
+							int curAlpha = curColor.getAlpha();
+							if (curAlpha == 0) { // 불투명한 점이 아니라면 그 직전의 y가 아래쪽 끝점.
+								bottomRightY = y - 1;
+//				        			System.out.println("if (curAlpha == 0) {");
+							}
+							else { // 불투명의 경우..
+								// 불투명한 점이라면, color가 current chunk의 color와 틀려질 경우, 그 직전의 점이 오른쪽 끝점.
+								if (curColor.getRed() != curBoxColliderColor.getRed() ||
+									curColor.getGreen() != curBoxColliderColor.getGreen() ||
+									curColor.getBlue() != curBoxColliderColor.getBlue()) {
+									bottomRightY = y - 1;
+					        		System.out.println("different color at (" + x + ", " + y + ")");
+								}
+							}
+	        			}
+	        			
+	        			if (bottomRightY == -1 &&
+	        				y == bgMaskCopy.getHeight() - 1) {
+	        				bottomRightY = y;
+	        			}
+	        		}
+	        		System.out.println("bottomRightY: " + bottomRightY);
+	
+	        		// 발견한 현재 box collider를 bgMaskBoxColliders에 add.
+	        		int typeBoxCollider = BoxCollider.getTypeByColor(curBoxColliderColor);
+	        		BoxCollider curBoxCollider = new BoxCollider(typeBoxCollider, null, null,
+	        				curStartX, curStartY, curStartX, curStartY,
+	        				bottomRightX - curStartX + 1, bottomRightY - curStartY + 1);
+	        		System.out.println(curBoxCollider.toString());
+	        		
+	        		bgMaskBoxColliders.add(curBoxCollider);
+	        		
+	        		if (curBoxCollider.isBlockBgType()) {
+	        			bgBlockedMaskBoxColliders.add(curBoxCollider);
+	        		}
+	        		if (curBoxCollider.isNonBlockBgType()) {
+	        			bgNonBlockedMaskBoxColliders.add(curBoxCollider);
+	        		}
+//	        		else if (curBoxCollider.type == BoxCollider.BOX_COLLIDER_TYPE_SPAWN_AREA_HERO) {
+//	        			heroSpawnBoxCollider = curBoxCollider;
+//	        		}
+//	        		else if (curBoxCollider.type == BoxCollider.BOX_COLLIDER_TYPE_SPAWN_AREA_BOSS) {
+//	        			bossSpawnBoxCollider = curBoxCollider;
+//	        		}
+//	        		else if (curBoxCollider.type == BoxCollider.BOX_COLLIDER_TYPE_SPAWN_AREA_ENEMY) {
+//	            		enemySpawnBoxColliders.add(curBoxCollider);
+//	        		}
+//	        		else if (curBoxCollider.type == BoxCollider.BOX_COLLIDER_TYPE_SPAWN_AREA_ALLY) {
+//	        			allySpawnBoxColliders.add(curBoxCollider);
+//	        		}
+	        		
+	        		// bgMask상의 pixel에 현재 발견된 chunk를 지운다. 즉 0, 0, 0, 0값을 가진 pixel을 그 chunk 직사각형에 박는다.
+	        		for (int y = curBoxCollider.startY; y < curBoxCollider.startY + curBoxCollider.height; y++) {
+	        			for (int x = curBoxCollider.startX; x < curBoxCollider.startX + curBoxCollider.width; x++) {
+	                        int r = 255;
+	                        int g = 255;
+	                        int b = 255;
+	                        int alpha = 0;
+	                        int col = (alpha << 24) | (r << 16) | (g << 8) | b;
+	        				bgMaskCopy.setRGB(x, y, col);
+	            		}
+	        		}
+	    		}
+	    	} while (foundStartPixel);
+	//		System.exit(1);
+	    	
+	    	printBgBlockedMaskBoxColliders();
+	    	System.out.println("    //------------------------------------------------------------");
+	    	printBgNonBlockedMaskBoxColliders();
+	    	System.exit(1);
+    }
+    
+    public static boolean collideWithBackgroundMask(BoxCollider otherBoxCollider) {
+	//    	return !bgMaskBoxCollider.isInMe(otherBoxCollider);
+	    	// 20170629: 이제 모든 blocked된 배경의 box collider로 바뀌므로, 이전에 방법과 반대가 된다. 즉, 자동 또는 수동으로 detect된 배경(blocked) box collider들과
+	    	// 조금이라도 부딪히게 된다면 충돌 처리를 해야 한다. 아래의 doesNextBoxColliderCollideWithBackgroundMask도 반대가 된다.
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetection(otherBoxCollider)) {
+	    			collided = true;
+	    		}
+	    	}
+	    	return collided;
+    }
+    
+    // bgBlockedMaskBoxColliders가 백그라운드를 처음 발견할 때 시간이 너무 걸리므로, 맨 처음 한번 detect할 때 constant형태로 output하도록 하여..
+    // 그것을 bg를 바꿀때마다 한번씩만 돌려서 print하고 사용하면 매우 빠르다.
+    public static void createBgBlockedMaskBoxCollidersByConstants() {
+    		bgMaskBoxColliders = new Vector<BoxCollider>();
+    		bgBlockedMaskBoxColliders = new Vector<BoxCollider>();
+    		bgNonBlockedMaskBoxColliders = new Vector<BoxCollider>();
+    	
+    		for (int i = 0; i < NUM_BG_BLOCKED_MASK_BOX_COLLIDERS; i++) {
+    			BoxCollider curBoxCollider = new BoxCollider(BG_BLOCKED_MASK_BOX_COLLIDER_TYPE[i], null, null,
+    				BG_BLOCKED_MASK_BOX_COLLIDER_START_POS[i][0], BG_BLOCKED_MASK_BOX_COLLIDER_START_POS[i][1],
+    				BG_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP[i][0], BG_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP[i][1],
+    				BG_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH[i], BG_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT[i]);
+        		bgMaskBoxColliders.add(curBoxCollider);
+        		if (curBoxCollider.isBlockBgType()) {
+        			bgBlockedMaskBoxColliders.add(curBoxCollider);
+        		}
+    		}
+    		
+    		for (int i = 0; i < NUM_BG_NON_BLOCKED_MASK_BOX_COLLIDERS; i++) {
+    			BoxCollider curBoxCollider = new BoxCollider(BG_NON_BLOCKED_MASK_BOX_COLLIDER_TYPE[i], null, null,
+    				BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS[i][0], BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS[i][1],
+    				BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP[i][0], BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP[i][1],
+    				BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH[i], BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT[i]);
+        		bgMaskBoxColliders.add(curBoxCollider);
+        		if (curBoxCollider.isNonBlockBgType()) {
+        			bgNonBlockedMaskBoxColliders.add(curBoxCollider);
+        		}
+    		}
+    }
+
+    // bgBlockedMaskBoxColliders가 백그라운드를 처음 발견할 때 시간이 너무 걸리므로, 맨 처음 한번 detect할 때 constant형태로 output하도록 하여..
+    // 그것을 bg를 바꿀때마다 한번씩만 돌려서 print하고 사용하면 매우 빠르다.
+    public static void printBgBlockedMaskBoxColliders() {
+    		// print the number of bgBlockedMaskBoxColliders
+    		System.out.println("    public static final int NUM_BG_BLOCKED_MASK_BOX_COLLIDERS = " + bgBlockedMaskBoxColliders.size() + ";");
+    		
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_TYPE = {");
+    		for (int i = 0; i < bgBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgBlockedMaskBoxColliders.get(i).type + ",");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS = {");
+    		for (int i = 0; i < bgBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        {" + bgBlockedMaskBoxColliders.get(i).startX + ", " + bgBlockedMaskBoxColliders.get(i).startY + "},");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[][] BG_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {");
+    		for (int i = 0; i < bgBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        {" + bgBlockedMaskBoxColliders.get(i).startX + ", " + bgBlockedMaskBoxColliders.get(i).startY + "},");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {");
+    		for (int i = 0; i < bgBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgBlockedMaskBoxColliders.get(i).width + ", ");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {");
+    		for (int i = 0; i < bgBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgBlockedMaskBoxColliders.get(i).height + ", ");
+	    	}
+    		System.out.println("    };");
+    }
+
+    // bgBlockedMaskBoxColliders가 백그라운드를 처음 발견할 때 시간이 너무 걸리므로, 맨 처음 한번 detect할 때 constant형태로 output하도록 하여..
+    // 그것을 bg를 바꿀때마다 한번씩만 돌려서 print하고 사용하면 매우 빠르다.
+    public static void printBgNonBlockedMaskBoxColliders() {
+    		// print the number of bgBlockedMaskBoxColliders
+    		System.out.println("    public static final int NUM_BG_NON_BLOCKED_MASK_BOX_COLLIDERS = " + bgNonBlockedMaskBoxColliders.size() + ";");
+    		
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_TYPE = {");
+    		for (int i = 0; i < bgNonBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgNonBlockedMaskBoxColliders.get(i).type + ",");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS = {");
+    		for (int i = 0; i < bgNonBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        {" + bgNonBlockedMaskBoxColliders.get(i).startX + ", " + bgNonBlockedMaskBoxColliders.get(i).startY + "},");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[][] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_POS_ON_MAP = {");
+    		for (int i = 0; i < bgNonBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        {" + bgNonBlockedMaskBoxColliders.get(i).startX + ", " + bgNonBlockedMaskBoxColliders.get(i).startY + "},");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_WIDTH = {");
+    		for (int i = 0; i < bgNonBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgNonBlockedMaskBoxColliders.get(i).width + ", ");
+	    	}
+    		System.out.println("    };");
+
+    		System.out.println("");
+    		
+    		System.out.println("    public static final int[] BG_NON_BLOCKED_MASK_BOX_COLLIDER_START_HEIGHT = {");
+    		for (int i = 0; i < bgNonBlockedMaskBoxColliders.size(); i++) {
+        		System.out.println("        " + bgNonBlockedMaskBoxColliders.get(i).height + ", ");
+	    	}
+    		System.out.println("    };");
+    }
+
+    public static boolean doesNextBoxColliderCollideWithBackgroundMask(BoxCollider otherNextBoxCollider) {
+	//    	return !bgMaskBoxCollider.isOtherNextBoxColliderInMe(otherNextBoxCollider);
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxCollider(otherNextBoxCollider)) {
+	    			collided = true;
+	
+	    			// door 처리.
+//	    			if (otherNextBoxCollider.unit != null &&
+//						otherNextBoxCollider.unit instanceof Hero &&
+//	    				bgBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_DOOR) {
+//					
+//						bgBlockedMaskBoxColliders.removeElementAt(i);
+//						
+//	                    Megaman.gameStart = false;
+//	                    Megaman.gameLevel.destroy();
+//	                    if (bgBlockedMaskBoxColliders.get(i).startY == 0) {
+//	                    		Megaman.gameLevel = new GameLevel(GATE_INFO[curLevel][GATE_INFO_NORTH]);
+//	                    }
+//	                    Megaman.gameStart = true;
+//	        		}
+	    		}
+	    	}
+	    	return collided;
+    }
+    
+    public static boolean doesNextLeftSideBoxColliderCollideWithBackgroundMask(BoxCollider otherNextBoxCollider) {
+	    	//    	return !bgMaskBoxCollider.isOtherNextBoxColliderInMe(otherNextBoxCollider);
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderLeftSide(otherNextBoxCollider)) {
+	    			collided = true;
+	
+	    			// door 처리.
+	//    			if (otherNextBoxCollider.unit != null &&
+	//					otherNextBoxCollider.unit instanceof Hero &&
+	//    				bgBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_DOOR) {
+	//				
+	//					bgBlockedMaskBoxColliders.removeElementAt(i);
+	//					
+	//                    Megaman.gameStart = false;
+	//                    Megaman.gameLevel.destroy();
+	//                    if (bgBlockedMaskBoxColliders.get(i).startY == 0) {
+	//                    		Megaman.gameLevel = new GameLevel(GATE_INFO[curLevel][GATE_INFO_NORTH]);
+	//                    }
+	//                    Megaman.gameStart = true;
+	//        		}
+	    		}
+	    	}
+	    	return collided;
+	}
+    
+    public static boolean doesNextRightSideBoxColliderCollideWithBackgroundMask(BoxCollider otherNextBoxCollider) {
+	//    	return !bgMaskBoxCollider.isOtherNextBoxColliderInMe(otherNextBoxCollider);
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderRightSide(otherNextBoxCollider)) {
+	    			collided = true;
+	
+	    			// door 처리.
+//	    			if (otherNextBoxCollider.unit != null &&
+//						otherNextBoxCollider.unit instanceof Hero &&
+//	    				bgBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_DOOR) {
+//					
+//						bgBlockedMaskBoxColliders.removeElementAt(i);
+//						
+//	                    Megaman.gameStart = false;
+//	                    Megaman.gameLevel.destroy();
+//	                    if (bgBlockedMaskBoxColliders.get(i).startY == 0) {
+//	                    		Megaman.gameLevel = new GameLevel(GATE_INFO[curLevel][GATE_INFO_NORTH]);
+//	                    }
+//	                    Megaman.gameStart = true;
+//	        		}
+	    		}
+	    	}
+	    	return collided;
+    }
+    
+    public static boolean doesNextLeftTopBoxColliderCollideWithBackgroundMask(BoxCollider otherNextBoxCollider) {
+	    	//    	return !bgMaskBoxCollider.isOtherNextBoxColliderInMe(otherNextBoxCollider);
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderLeftTop(otherNextBoxCollider)) {
+	    			collided = true;
+	
+	    			// door 처리.
+	//    			if (otherNextBoxCollider.unit != null &&
+	//					otherNextBoxCollider.unit instanceof Hero &&
+	//    				bgBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_DOOR) {
+	//				
+	//					bgBlockedMaskBoxColliders.removeElementAt(i);
+	//					
+	//                    Megaman.gameStart = false;
+	//                    Megaman.gameLevel.destroy();
+	//                    if (bgBlockedMaskBoxColliders.get(i).startY == 0) {
+	//                    		Megaman.gameLevel = new GameLevel(GATE_INFO[curLevel][GATE_INFO_NORTH]);
+	//                    }
+	//                    Megaman.gameStart = true;
+	//        		}
+	    		}
+	    	}
+	    	return collided;
+	}
+    
+    public static boolean doesNextRightTopBoxColliderCollideWithBackgroundMask(BoxCollider otherNextBoxCollider) {
+	    	//    	return !bgMaskBoxCollider.isOtherNextBoxColliderInMe(otherNextBoxCollider);
+	    	boolean collided = false;
+	    	for (int i = 0; i < bgBlockedMaskBoxColliders.size() && !collided; i++) {
+	    		if (bgBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderRightTop(otherNextBoxCollider)) {
+	    			collided = true;
+	
+	    			// door 처리.
+	//    			if (otherNextBoxCollider.unit != null &&
+	//					otherNextBoxCollider.unit instanceof Hero &&
+	//    				bgBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_DOOR) {
+	//				
+	//					bgBlockedMaskBoxColliders.removeElementAt(i);
+	//					
+	//                    Megaman.gameStart = false;
+	//                    Megaman.gameLevel.destroy();
+	//                    if (bgBlockedMaskBoxColliders.get(i).startY == 0) {
+	//                    		Megaman.gameLevel = new GameLevel(GATE_INFO[curLevel][GATE_INFO_NORTH]);
+	//                    }
+	//                    Megaman.gameStart = true;
+	//        		}
+	    		}
+	    	}
+	    	return collided;
+	}
+
+    public static BoxCollider doesBoxColliderCollideWithLadderMask(BoxCollider otherBoxCollider) {
+    		BoxCollider collidedLadderBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedLadderBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_LADDER &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetection(otherBoxCollider)) {
+	    			collidedLadderBoxCollider = bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedLadderBoxCollider;
+    }
+    
+    public static BoxCollider doesNextBoxColliderCollideWithLadderMask(BoxCollider otherNextBoxCollider) {
+		BoxCollider collidedLadderBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedLadderBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_LADDER &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxCollider(otherNextBoxCollider)) {
+	    			collidedLadderBoxCollider = bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedLadderBoxCollider;
+	}
+    
+    public static BoxCollider doesBoxColliderCollideWithGroundMask(BoxCollider otherBoxCollider) {
+		BoxCollider collidedGroundBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedGroundBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_GROUND &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetection(otherBoxCollider)) {
+	    			collidedGroundBoxCollider = bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedGroundBoxCollider;
+	}
+	
+	public static BoxCollider doesNextBoxColliderCollideWithGroundMask(BoxCollider otherNextBoxCollider) {
+		BoxCollider collidedGroundBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedGroundBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_GROUND &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxCollider(otherNextBoxCollider)) {
+	    			collidedGroundBoxCollider = bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedGroundBoxCollider;
+	}
+	
+    public static BoxCollider doesNextLeftSideBoxColliderCollideWithGroundMask(BoxCollider otherNextBoxCollider) {
+		BoxCollider collidedGroundBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedGroundBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_GROUND &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderLeftSide(otherNextBoxCollider)) {
+	    			collidedGroundBoxCollider = bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedGroundBoxCollider;
+	}
+    
+    public static BoxCollider doesNextRightSideBoxColliderCollideWithGroundMask(BoxCollider otherNextBoxCollider) {
+		BoxCollider collidedGroundBoxCollider = null;
+	    	for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedGroundBoxCollider == null; i++) {
+	    		if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_GROUND &&
+	    			bgNonBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderRightSide(otherNextBoxCollider)) {
+	    			collidedGroundBoxCollider = ^^^^^^^bgNonBlockedMaskBoxColliders.get(i);
+	    		}
+	    	}
+	    	return collidedGroundBoxCollider;
+	}
+    public static BoxCollider doesNextRightSideBoxColliderCollideWithGroundMask(BoxCollider otherNextBoxCollider) {
+        BoxCollider collidedGroundBoxCollider = null;
+        for (int i = 0; i < bgNonBlockedMaskBoxColliders.size() && collidedGroundBoxCollider == null; i++) {
+            if (bgNonBlockedMaskBoxColliders.get(i).type == BoxCollider.BOX_COLLIDER_TYPE_PROP_CLIMBABLE_GROUND &&
+                bgNonBlockedMaskBoxColliders.get(i).collisionDetectionOtherNextBoxColliderRightSide(otherNextBoxCollider)) {
+                collidedGroundBoxCollider = ^^^^^^^bgNonBlockedMaskBoxColliders.get(i);
+            }
+        }
+        return collidedGroundBoxCollider;
+    }
+
+}
