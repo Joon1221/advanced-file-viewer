@@ -14,15 +14,6 @@ Features
 - Opening and viewing **multiple files** at once.
 
 
-How it Works
-------------
-
-The advanced file viewer uses the LZ77 algorithm to compress and decompress
-files. Compressed files end with **.lz77** file extension and decompressed files
-end with **.lz77.org**. To prevent memory overflow when dealing with large files,
-a sliding-window is used.
-
-
 Installation
 ------------
 
